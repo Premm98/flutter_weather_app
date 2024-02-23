@@ -91,28 +91,48 @@ class WeatherScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 5),
-            SingleChildScrollView(
+            const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: '00:00',
+                    icon: Icons.cloud,
+                    temp: '301.22',
+                  ),
 
                   // Card 2
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: '03:00',
+                    icon: Icons.cloud,
+                    temp: '299.22',
+                  ),
 
                   //Card 3
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: '06:00',
+                    icon: Icons.cloud,
+                    temp: '300.22',
+                  ),
 
                   // Card 4
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: '09:00',
+                    icon: Icons.cloud,
+                    temp: '287.02',
+                  ),
 
                   // Card 5
-                  HourlyForecastItem(),
+                  HourlyForecastItem(
+                    time: '12:00',
+                    icon: Icons.thunderstorm,
+                    temp: '275.22',
+                  ),
                 ],
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
 
@@ -126,7 +146,7 @@ class WeatherScreen extends StatelessWidget {
 
             const SizedBox(height: 5),
 
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 AdditionalInfoItem(
