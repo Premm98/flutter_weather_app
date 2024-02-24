@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:http/http.dart' as http;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/additional_info_item.dart';
 import 'package:weather_app/hourly_forecast_item.dart';
@@ -41,7 +39,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     final cityName = 'Bangalore';
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 139, 81, 149),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 139, 81, 149),
         title: Text(
           '$cityName Weather App',
           style: const TextStyle(
@@ -50,7 +50,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.refresh))
+          IconButton(
+              onPressed: () {
+                setState(() {});
+              },
+              icon: const Icon(Icons.refresh))
         ],
       ),
       body: FutureBuilder(
@@ -75,7 +79,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
           final windSpeed = data['list'][0]['wind']['speed'];
           final humidity = currentWeather['main']['humidity'];
           return Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(10.0),
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -85,6 +89,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: Card(
+                      color: Color.fromARGB(255, 142, 47, 128),
+                      shadowColor: Color.fromARGB(255, 139, 81, 149),
                       elevation: 30,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
@@ -97,7 +103,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             sigmaY: 10,
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.all(16.0),
                             child: Column(
                               children: [
                                 Text(
@@ -226,7 +232,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 120,
                   ),
                   Container(
